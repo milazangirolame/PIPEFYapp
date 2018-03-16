@@ -1,2 +1,3 @@
 class OrganizationsController < ApplicationController
+
 end
