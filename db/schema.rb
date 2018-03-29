@@ -10,23 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180319221350) do
+ActiveRecord::Schema.define(version: 20180319225820) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "cards", force: :cascade do |t|
     t.string "title"
-    t.date "due_date"
+    t.datetime "due_date"
+    t.bigint "phase_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["phase_id"], name: "index_cards_on_phase_id"
   end
 
   create_table "fields", force: :cascade do |t|
     t.string "name"
     t.string "value"
+    t.bigint "card_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["card_id"], name: "index_fields_on_card_id"
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -53,6 +57,8 @@ ActiveRecord::Schema.define(version: 20180319221350) do
     t.index ["organization_id"], name: "index_pipes_on_organization_id"
   end
 
+  add_foreign_key "cards", "phases"
+  add_foreign_key "fields", "cards"
   add_foreign_key "phases", "pipes"
   add_foreign_key "pipes", "organizations"
 end

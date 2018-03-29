@@ -3,7 +3,9 @@
 one:
   name: MyString
   value: MyString
+  card: one
 
 two:
   name: MyString
   value: MyString
+  card: two

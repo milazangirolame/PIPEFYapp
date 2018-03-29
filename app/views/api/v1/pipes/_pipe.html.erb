@@ -1,0 +1,26 @@
+<h2><%= pipe.name %></h2>
+
+<table border="1" cellpadding="5" cellspacing="0">
+  <tr>
+    <th>Title</th>
+    <th>Created At </th>
+    <th>Current Phase</th>
+    <th>Due Date</th>
+    <th>Fields</th>
+  </tr>
+  <% @cards.each do |card| %>
+   <tr>
+      <td><%=card.title%></td>
+      <td><%=card.created_at.strftime('%d/%m/%Y') %></td>
+      <td><%=card.phase.name%></td>
+      <td>
+        <% if card.due_date.nil? %>
+        <% else %>
+        <%= card.due_date.strftime('%d/%m/%Y')%>
+        <%end%>
+      </td>
+      <td></td>
+    </tr>
+  <% end %>
+</table>
+

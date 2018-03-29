@@ -1,0 +1,11 @@
+<h1> <%= @organization.name %></h1>
+
+<%= link_to create_or_update_records_path, remote: true, method: :get, class: 'fetch' do %>
+        <button class="fetch">Fetch new data</button>
+<% end %>
+<%= link_to delete_data_path, remote: true, method: :get, class: 'fetch' do %>
+        <button class="fetch">Delete Records</button>
+<% end %>
+
+<%= render @organization.pipes %>
+

@@ -2,8 +2,10 @@
 
 one:
   title: MyString
-  due_date: 2018-03-19
+  due_date: 2018-03-19 19:55:54
+  phase: one
 
 two:
   title: MyString
-  due_date: 2018-03-19
+  due_date: 2018-03-19 19:55:54
+  phase: two
